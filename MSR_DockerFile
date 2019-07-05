@@ -2,7 +2,7 @@ FROM msr/sag_msr
 
 MAINTAINER SoftwareAG
 ENV PATHTEST /home/Administrator/JenkinsWorkspace/Services/
-WORKDIR $PATHTEST
+WORKDIR ${PATHTEST}
 EXPOSE 5566
 EXPOSE 22
 ARG packageName
