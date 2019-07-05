@@ -1,4 +1,4 @@
-FROM bandcreg.eur.ad.sag:1443/rhel/rhel
+FROM alpine:latest
 
 MAINTAINER SoftwareAG
 
