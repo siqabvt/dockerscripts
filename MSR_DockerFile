@@ -1,9 +1,8 @@
 FROM msr/sag_msr
 
 MAINTAINER SoftwareAG
-WORKDIR /home/Administrator/JenkinsWorkspace/Services
 EXPOSE 5566
 EXPOSE 22
 ARG packageName
-COPY ./$packageName /home/sagadmin/SoftwareAG_MSR/IntegrationServer/replicate/autodeploy/
+COPY $packageName /home/sagadmin/SoftwareAG_MSR/IntegrationServer/replicate/autodeploy/
 ENTRYPOINT ["/home/sagadmin/SoftwareAG_MSR/IntegrationServer/bin/startContainer.sh"]
