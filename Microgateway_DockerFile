@@ -29,7 +29,4 @@ HEALTHCHECK CMD ${MICROGW_DIR}/microgateway.sh status 2>&1 | grep 'Server active
 WORKDIR ${MICROGW_DIR}
 
 USER 1724
-
-ENTRYPOINT ["./docker-entrypoint.sh"]
-CMD ["-p", "$mgwport", "-c", "$mgwconfigFile", "-lv", "ERROR"]
-
+CMD cd /opt/softwareag/Microgateway && ./microgateway.sh -p $mgwport -c $mgwconfigFile
