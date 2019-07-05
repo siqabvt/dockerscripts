@@ -46,7 +46,7 @@ service_registries:
  
 # Specifying assets to download from API Gateway
 downloads:
-   apis: AirlineReservations
+   apis: FlightTracking
    
    
 # Microgateway admin API configuration
