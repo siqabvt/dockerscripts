@@ -1,8 +1,10 @@
 FROM msr/sag_msr
 
 MAINTAINER SoftwareAG
+ENV PATHTEST /home/Administrator/JenkinsWorkspace/Services/
+WORKDIR $PATHTEST
 EXPOSE 5566
 EXPOSE 22
 ARG packageName
-COPY ./../Services/$packageName /home/sagadmin/SoftwareAG_MSR/IntegrationServer/replicate/autodeploy/
+COPY \$PATHTEST$packageName /home/sagadmin/SoftwareAG_MSR/IntegrationServer/replicate/autodeploy/
 ENTRYPOINT ["/home/sagadmin/SoftwareAG_MSR/IntegrationServer/bin/startContainer.sh"]
