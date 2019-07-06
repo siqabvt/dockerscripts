@@ -26,7 +26,6 @@ EXPOSE 9090
 HEALTHCHECK CMD ${MICROGW_DIR}/microgateway.sh status 2>&1 | grep 'Server active'
 
 WORKDIR ${MICROGW_DIR}
-COPY --chown=1724:1724 mcgw_config.yml ${MICROGW_DIR}
 USER 1724
 
 ENTRYPOINT ["./docker-entrypoint.sh"]
