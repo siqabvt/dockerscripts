@@ -21,7 +21,7 @@ COPY --chown=1724:1724 ./*.sh ${MICROGW_DIR}/
 COPY --chown=1724:1724 ./*.yml ${MICROGW_DIR}/
 
 COPY --chown=1724:1724 ./microgateway-jre-linux-musl/ ${MICROGW_DIR}/microgateway-jre-linux-musl/
-COPY $mgwconfigFile /opt/softwareag/Microgateway/
+COPY --chown=1724:1724 $mgwconfigFile ${MICROGW_DIR}
 EXPOSE 9090
 
 HEALTHCHECK CMD ${MICROGW_DIR}/microgateway.sh status 2>&1 | grep 'Server active'
