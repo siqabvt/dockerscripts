@@ -31,4 +31,4 @@ WORKDIR ${MICROGW_DIR}
 USER 1724
 
 ENTRYPOINT ["./docker-entrypoint.sh"]
-CMD [ "start", "-p", "$mgwport", "-c", "$mgwconfigFile", "-lv", "ERROR"]
+CMD ["-p", "$mgwport", "-c", "$mgwconfigFile", "-lv", "ERROR"]
