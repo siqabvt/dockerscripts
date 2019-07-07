@@ -1,7 +1,7 @@
 
 # Microgateway ports
 ports:
-   http: 9090
+   http: 5550
    https: 
    key_alias: ssos
  
@@ -12,10 +12,10 @@ api_endpoint:
  
 # API Gateway configuration 
 api_gateway:
-   url: http://dcssuv01:4444
+   url: http://vmsiqademo02:4444
    user: Administrator
    password: manage
-   dir: /home/Administrator/Microgateway/
+   dir: C:\APIManagement
    retain_settings: true
    
  #service registry
@@ -26,7 +26,7 @@ service_registries:
   description: Service Consul is a tool for discovering and configuring services in
     IT infrastructure.
   owner: Administrator
-  endpointURI: http://vmcrosscluster2:8500/v1
+  endpointURI: http://vmsiqademo01:8500/v1
   heartBeatInterval: 0
   password: ''
   customHeaders:
@@ -46,15 +46,15 @@ service_registries:
  
 # Specifying assets to download from API Gateway
 downloads:
-   apis: FlightTracking
+   apis: RestOps,RestOpsExtended,RestOpsDataMask
    
    
 # Microgateway admin API configuration
 admin_api:
     admin_path: /rest/microgateway
 microgatewayPool:
-    microgatewayPoolName: Developer_Pool
-    microgatewayPoolDescription: All the partner APIs running on Microgateway are available on this pool.	
+    microgatewayPoolName: SIQA_POOL
+    microgatewayPoolDescription: The apis part of this pool are used for testing in SIQA environment.	
     
     
 # Specify the runtime authorization method
@@ -66,5 +66,3 @@ policies:
 logging:
    level: ERROR
    path: logs
- 
-
