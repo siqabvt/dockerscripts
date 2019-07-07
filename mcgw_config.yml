@@ -52,7 +52,7 @@ downloads:
 admin_api:
     admin_path: /rest/microgateway
 microgatewayPool:
-    microgatewayPoolName: Developer_Pool
+    microgatewayPoolName: DEMO
     microgatewayPoolDescription: All the partner APIs running on Microgateway are available on this pool.	
     
     
