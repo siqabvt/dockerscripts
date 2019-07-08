@@ -1,6 +1,6 @@
 # Microgateway ports
 ports:
-   http: 9090
+   http: 9091
    https: 
    key_alias: ssos
  
@@ -45,7 +45,7 @@ service_registries:
  
 # Specifying assets to download from API Gateway
 downloads:
-   apis: FlightTracking
+   apis: EchoAPI
    
    
 # Microgateway admin API configuration
