@@ -1,6 +1,6 @@
 # Microgateway ports
 ports:
-   http: 9091
+   http: 9090
    https: 
    key_alias: ssos
  
