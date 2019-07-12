@@ -2,7 +2,8 @@ FROM alpine:latest
 MAINTAINER SoftwareAG
 
 ENV MICROGW_DIR /opt/softwareag/Microgateway
-ARG apiname 
+ARG mgwport
+ARG mgwconfigFile
 RUN mkdir -p ${MICROGW_DIR}/logs
 
 COPY adduser.sh ${MICROGW_DIR}
@@ -27,4 +28,4 @@ WORKDIR ${MICROGW_DIR}
 USER 1724
 
 ENTRYPOINT ["./docker-entrypoint.sh"]
-CMD ["-p", "9090", "-c", "mcgw_config.yml", "-a", "AirlineReservations.zip", "-lv", "ERROR"]
+CMD ["-p", "9090", "-c", "mcgw_config.yml", "-lv", "ERROR"]
