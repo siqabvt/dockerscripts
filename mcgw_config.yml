@@ -1,67 +1,203 @@
-# Microgateway ports
-ports:
-   http: 9090
-   https: 
-   key_alias: ssos
- 
-# Microgateway API endpoint base path
-api_endpoint:
-    base_path: /gateway
- 
- 
-# API Gateway configuration 
-api_gateway:
-   url: http://dcssuv01:7777
-   user: Administrator
-   password: manage
-   dir: /home/Administrator/Microgateway/
-   retain_settings: true
-   
- #service registry
+---
+faults:
+  default_error_message: "API Gateway encountered an error. Error Message: $ERROR_MESSAGE.\
+    \ Request Details: Service - $SERVICE, Operation - $OPERATION, Invocation Time:$TIME,\
+    \ Date:$DATE,  Client IP - $CLIENT_IP, User - $USER and Application:$CONSUMER_APPLICATION"
+  native_provider_fault: "false"
+extended_settings:
+  apiKeyHeader: "x-Gateway-APIKey"
+  apig_MENConfiguration_tickInterval: "60"
+  apig_rest_service_redirect: "false"
+  apig_schemaValidationPoolSize: "10"
+  customCertificateHeader: "X-Client-Cert"
+  decodeAllDelimitersInURI: "false"
+  defaultEncoding: "UTF-8"
+  defaultLanguage: "en"
+  events.collectionPool.maxThreads: "8"
+  events.collectionPool.minThreads: "1"
+  events.collectionQueue.size: "10000"
+  events.reportingPool.maxThreads: "4"
+  events.reportingPool.minThreads: "2"
+  events.reportingQueue.size: "5000"
+  forwardInternalAPIsRequest: "false"
+  paginationPossibleValues: "10,20,30,40,50"
+  pg.3pSnmpSender.sendDelay: "0"
+  pg.cs.snmpTarget.base64Encoded: "false"
+  pg.cs.snmpTarget.connTimeout: "0"
+  pg.cs.snmpTarget.maxRequestSize: "10485760"
+  pg.cs.snmpTarget.retries: "1"
+  pg.cs.snmpTarget.sendTimeOut: "500"
+  pg.endpoint.connectionTimeout: "30"
+  pg.endpoint.readTimeout: "30"
+  pg.lb.failoverOnDowntimeErrorOnly: "true"
+  pg.snmp.communityTarget.base64Encoded: "false"
+  pg.snmp.communityTarget.maxRequestSize: "65535"
+  pg.snmp.communityTarget.retries: "1"
+  pg.snmp.communityTarget.sendTimeOut: "500"
+  pg.snmp.customTarget.connTimeout: "0"
+  pg.snmp.userTarget.maxRequestSize: "65535"
+  pg.snmp.userTarget.retries: "1"
+  pg.snmp.userTarget.sendTimeOut: "500"
+  pg.uddiClient.publish.maxThreads: "2"
+  pg.uddiClient.uddiClientTimeout: "15000"
+  pg_Cache_autoScalerRunInterval: "120"
+  pg_Cache_averageObjectSize: "64"
+  pg_Cache_boundedCacheResizerRunInterval: "30"
+  pg_Cache_maxCacheSize: "1048576"
+  pg_Cache_minCachePercent: "20"
+  pg_Cache_minCacheSize: "1024"
+  pg_Cache_statisticsProcessorRunInterval: "15"
+  pg_JWT_isHTTPS: "true"
+  pg_OpenID_isHTTPS: "true"
+  pg_oauth2_isHTTPS: "true"
+  pg_xslt_disableDoctypeDeclarations: "true"
+  pg_xslt_enableDOM: "false"
+  pg_xslt_enableSecureProcessing: "true"
+  pgmen.quotaSurvival.addLostIntervals: "true"
+  pgmen.quotaSurvival.interval: "1"
+  retainResponseStatus: "false"
+  sendClientRequestURI: "false"
+  setDefaultContentType: "true"
+  strictResourceMatching: "true"
+  transformerPoolSize: "5"
+es_destination:
+  metricsPublishInterval: "60"
+  port: "9240"
+  sendAuditlogAPIManagementEvent: "false"
+  sendAuditlogAccessProfileManagementEvent: "false"
+  sendAuditlogAdministrationEvent: "false"
+  sendAuditlogAliasManagementEvent: "false"
+  sendAuditlogApplicationManagementEvent: "false"
+  sendAuditlogApprovalManagementEvent: "false"
+  sendAuditlogGroupManagementEvent: "false"
+  sendAuditlogPackageManagementEvent: "false"
+  sendAuditlogPlanManagementEvent: "false"
+  sendAuditlogPolicyManagementEvent: "false"
+  sendAuditlogPromotionManagementEvent: "false"
+  sendAuditlogRuntimeDataManagementEvent: "false"
+  sendAuditlogUserManagementEvent: "false"
+  sendErrorEvent: "false"
+  sendLifecycleEvent: "false"
+  sendPerformanceMetrics: "false"
+  sendPolicyViolationEvent: "false"
+gateway_destination:
+  metricsPublishInterval: "60"
+  sendAuditlogAPIManagementEvent: "true"
+  sendAuditlogAccessProfileManagementEvent: "true"
+  sendAuditlogAdministrationEvent: "true"
+  sendAuditlogAliasManagementEvent: "true"
+  sendAuditlogApplicationManagementEvent: "true"
+  sendAuditlogApprovalManagementEvent: "true"
+  sendAuditlogGroupManagementEvent: "true"
+  sendAuditlogPackageManagementEvent: "true"
+  sendAuditlogPlanManagementEvent: "true"
+  sendAuditlogPolicyManagementEvent: "true"
+  sendAuditlogPromotionManagementEvent: "true"
+  sendAuditlogRuntimeDataManagementEvent: "true"
+  sendAuditlogUserManagementEvent: "true"
+  sendErrorEvent: "true"
+  sendLifecycleEvent: "true"
+  sendPerformanceMetrics: "true"
+  sendPolicyViolationEvent: "true"
+security_settings:
+  providers:
+  - !<clientMetadataMapping>
+    id: "PingFederate"
+    name: "PingFederate"
+    type: "clientMetadataMapping"
+    owner: "Administrator"
+    providerName: "PingFederate"
+    implNames:
+      grant_types: "grantTypes"
+      logo_uri: "logoUrl"
+      scope: "restrictedScopes"
+      client_secret: "secret"
+      redirect_uris: "redirectUris"
+      client_name: "name"
+      client_id: "clientId"
+    extendedValues: {}
+    extendedValuesV2:
+    - endpointType: "CLIENT_REGISTRATION"
+      key: "restrictScopes"
+      value: "true"
+    - endpointType: "CLIENT_UPDATE"
+      key: "restrictScopes"
+      value: "true"
+  - !<clientMetadataMapping>
+    id: "OKTA"
+    name: "OKTA"
+    type: "clientMetadataMapping"
+    owner: "Administrator"
+    providerName: "OKTA"
+    implNames: {}
+    extendedValues: {}
+    extendedValuesV2: []
+  auth_servers:
+  - !<authServerAlias>
+    id: "local"
+    name: "local"
+    description: "API Gateway as an Authorization server."
+    type: "authServerAlias"
+    owner: "Administrator"
+    tokenGeneratorConfig:
+      expiry: 0
+      accessTokenExpInterval: 3600
+      authCodeExpInterval: 600
+    authServerScopes: []
+    supportedGrantTypes:
+    - "authorization_code"
+    - "password"
+    - "client_credentials"
+    - "refresh_token"
+    - "implicit"
+    oauthTokens: []
+    authServerType: "LOCAL_IS"
 service_registries:
-- type: serviceRegistryAlias
-  id: ServiceConsulDefault
-  name: ServiceConsulDefault
-  description: Service Consul is a tool for discovering and configuring services in
-    IT infrastructure.
-  owner: Administrator
-  endpointURI: 
+- !<serviceRegistryAlias>
+  id: "ServiceConsulDefault"
+  name: "ServiceConsulDefault"
+  description: "Service Consul is a tool for discovering and configuring services\
+    \ in IT infrastructure."
+  type: "serviceRegistryAlias"
+  owner: "Administrator"
+  endpointURI: "http://vmcrosscluster2:8500/v1"
   heartBeatInterval: 0
-  password: ''
-  customHeaders:
-    X-Consul-Token: ''
+  username: "Administrator"
+  password: "KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKio="
+  customHeaders: {}
   discoveryInfo:
     path: "/catalog/service/{serviceName}"
-    httpMethod: GET
+    httpMethod: "GET"
   registrationInfo:
     path: "/agent/service/register"
-    httpMethod: PUT
+    httpMethod: "PUT"
   deRegistrationInfo:
     path: "/agent/service/deregister/{serviceId}"
-    httpMethod: PUT
-  serviceRegistryType: SERVICE_CONSUL
+    httpMethod: "PUT"
+  serviceRegistryType: "SERVICE_CONSUL"
   connectionTimeout: 30
   readTimeout: 30
- 
-# Specifying assets to download from API Gateway
-downloads:
-   apis: AirlineReservations
-   
-   
-# Microgateway admin API configuration
-admin_api:
-    admin_path: /rest/microgateway
-microgatewayPool:
-    microgatewayPoolName: DEMO
-    microgatewayPoolDescription: All the partner APIs running on Microgateway are available on this pool.	
-    
-    
-# Specify the runtime authorization method
-policies:
-   user_auth: delegated
-   
-   
-# Microgateway logging configuration
-logging:
-   level: ERROR
-   path: logs
+- !<serviceRegistryAlias>
+  id: "EurekaDefault"
+  name: "EurekaDefault"
+  description: "Eureka is a REST based service that is primarily used in the AWS cloud\
+    \ for locating services for the purpose of load balancing and failover of middle-tier\
+    \ servers"
+  type: "serviceRegistryAlias"
+  owner: "Administrator"
+  endpointURI: "http://localhost:8761"
+  heartBeatInterval: 0
+  password: ""
+  customHeaders: {}
+  discoveryInfo:
+    path: "/eureka/apps/{app}"
+    httpMethod: "GET"
+  registrationInfo:
+    path: "/eureka/apps/{app}"
+    httpMethod: "POST"
+  deRegistrationInfo:
+    path: "/eureka/apps/{app}/{instanceId}"
+    httpMethod: "DELETE"
+  serviceRegistryType: "EUREKA"
+  connectionTimeout: 30
+  readTimeout: 30
