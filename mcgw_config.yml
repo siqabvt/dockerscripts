@@ -25,7 +25,7 @@ service_registries:
   description: Service Consul is a tool for discovering and configuring services in
     IT infrastructure.
   owner: Administrator
-  endpointURI: http://vmcrosscluster2:8500/v1
+  endpointURI: 
   heartBeatInterval: 0
   password: ''
   customHeaders:
