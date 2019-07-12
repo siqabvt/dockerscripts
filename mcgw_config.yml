@@ -17,31 +17,6 @@ api_gateway:
    dir: /home/Administrator/Microgateway/
    retain_settings: true
    
- #service registry
-service_registries:
-- type: serviceRegistryAlias
-  id: ServiceConsulDefault
-  name: ServiceConsulDefault
-  description: Service Consul is a tool for discovering and configuring services in
-    IT infrastructure.
-  owner: Administrator
-  endpointURI: 
-  heartBeatInterval: 0
-  password: ''
-  customHeaders:
-    X-Consul-Token: ''
-  discoveryInfo:
-    path: "/catalog/service/{serviceName}"
-    httpMethod: GET
-  registrationInfo:
-    path: "/agent/service/register"
-    httpMethod: PUT
-  deRegistrationInfo:
-    path: "/agent/service/deregister/{serviceId}"
-    httpMethod: PUT
-  serviceRegistryType: SERVICE_CONSUL
-  connectionTimeout: 30
-  readTimeout: 30
  
 # Specifying assets to download from API Gateway
 downloads:
@@ -230,8 +205,8 @@ service_registries:
   owner: "Administrator"
   endpointURI: "http://vmcrosscluster2:8500/v1"
   heartBeatInterval: 0
-  username: "Administrator"
-  password: "KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKio="
+  username:
+  password: 
   customHeaders: {}
   discoveryInfo:
     path: "/catalog/service/{serviceName}"
