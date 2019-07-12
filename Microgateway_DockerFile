@@ -27,4 +27,4 @@ WORKDIR ${MICROGW_DIR}
 USER 1724
 
 ENTRYPOINT ["./docker-entrypoint.sh"]
-CMD ["-p", "9090", "-c", "mcgw_config.yml", "-a" "${apiname}", "-lv", "ERROR"]
+CMD ["-p", "9090", "-c", "mcgw_config.yml", "-a", "${apiname}", "-lv", "ERROR"]
