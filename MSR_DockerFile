@@ -16,7 +16,7 @@ COPY ./IntegrationServer/lib/ ${SAG_HOME}/IntegrationServer/lib/
 COPY ./IntegrationServer/updates/ ${SAG_HOME}/IntegrationServer/updates/
 COPY ./IntegrationServer/web/ ${SAG_HOME}/IntegrationServer/web/
 COPY ./IntegrationServer/docker/ ${SAG_HOME}/IntegrationServer/docker/
-COPY ./IntegrationServer/replicate/* ${SAG_HOME}/IntegrationServer/replicate/
+COPY ./IntegrationServer/replicate ${SAG_HOME}/IntegrationServer/replicate/
 
 COPY ./IntegrationServer/.tc.dev.log4j.properties ${SAG_HOME}/IntegrationServer/.tc.dev.log4j.properties
 
