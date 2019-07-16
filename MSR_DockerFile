@@ -32,5 +32,5 @@ COPY ./IntegrationServer/packages/WmCloud/ ${SAG_HOME}/IntegrationServer/package
 EXPOSE 6666
 EXPOSE 3333
 ARG packageName
-COPY $packageName ${SAG_HOME}/IntegrationServer/replicate/autodeploy/
+COPY ./Services/$packageName ${SAG_HOME}/IntegrationServer/packages/
 ENTRYPOINT ["/opt/softwareag/IntegrationServer/bin/startContainer.sh"]
