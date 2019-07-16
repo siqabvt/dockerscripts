@@ -27,7 +27,7 @@ COPY ./IntegrationServer/packages/Default/ ${SAG_HOME}/IntegrationServer/package
 COPY ./IntegrationServer/packages/WmRoot/ ${SAG_HOME}/IntegrationServer/packages/WmRoot/
 COPY ./IntegrationServer/packages/WmPublic/ ${SAG_HOME}/IntegrationServer/packages/WmPublic/
 COPY ./IntegrationServer/packages/WmCloud/ ${SAG_HOME}/IntegrationServer/packages/WmCloud/
-
+COPY ./IntegrationServer/packages/WmConsul/ ${SAG_HOME}/IntegrationServer/packages/WmConsul/
  RUN cd /opt/softwareag/IntegrationServer/docker; ./is_container.sh updateDockerConfigFiles -Ddocker.isHomeDir=${SAG_HOME}/IntegrationServer -Ddocker.rootDir=${SAG_HOME};
 EXPOSE 6666
 EXPOSE 3333
