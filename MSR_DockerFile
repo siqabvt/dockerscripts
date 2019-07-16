@@ -29,7 +29,7 @@ COPY ./IntegrationServer/packages/WmPublic/ ${SAG_HOME}/IntegrationServer/packag
 COPY ./IntegrationServer/packages/WmCloud/ ${SAG_HOME}/IntegrationServer/packages/WmCloud/
 
  RUN cd /opt/softwareag/IntegrationServer/docker; ./is_container.sh updateDockerConfigFiles -Ddocker.isHomeDir=${SAG_HOME}/IntegrationServer -Ddocker.rootDir=${SAG_HOME};
-EXPOSE 5566
+EXPOSE 6666
 EXPOSE 9999
 ARG packageName
 COPY $packageName ${SAG_HOME}/IntegrationServer/replicate/autodeploy/
