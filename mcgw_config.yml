@@ -11,7 +11,7 @@ api_endpoint:
  
 # API Gateway configuration 
 api_gateway:
-   url: http://daehpresal32272.daedmz.loc:11072
+   url: http://daehpresal32272.daedmz.loc:11055
    user: Administrator
    password: Demo2019!
    dir: /home/Administrator/Microgateway/
