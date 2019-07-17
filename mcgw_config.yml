@@ -13,7 +13,7 @@ api_endpoint:
 api_gateway:
    url: http://daehpresal32272.daedmz.loc:11072
    user: Administrator
-   password: manage
+   password: Demo2019!
    dir: /home/Administrator/Microgateway/
    retain_settings: true
    
